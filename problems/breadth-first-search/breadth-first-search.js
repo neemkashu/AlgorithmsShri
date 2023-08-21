@@ -11,6 +11,14 @@
 
 export function bfs(tree) {
     const result = [];
+    const queue = [];
+    queue.unshift(tree)
 
+    while(queue.length > 0) {
+        const node = queue.pop()
+        result.push(node.val)
+        if (node.left) queue.unshift(node.left)
+        if (node.right) queue.unshift(node.right)
+    }
     return result;
 }
