@@ -10,6 +10,18 @@
  * }
  */
 
-export function dfs(tree) {
+export function dfs(root) {
+  const result = [];
 
+  function dfsInner(tree) {
+    if (tree === null) {
+      return;
+    }
+    result.push(tree.val)
+    dfsInner(tree.left)
+    dfsInner(tree.right)
+  }
+  dfsInner(root)
+
+  return result;
 }
