@@ -8,10 +8,11 @@ const swap = (i,j,arr) => {
 
 export function bubbleSort(arr) {
     let swapAmount = 0;
+    let sortedCount = 0;
 
     do {
         swapAmount = 0;
-        for (let index = 1; index < arr.length; index++) {
+        for (let index = 1; index < arr.length - sortedCount; index++) {
             const element = arr[index];
             const elementPrev = arr[index - 1]
             if (elementPrev > element) {
@@ -19,6 +20,7 @@ export function bubbleSort(arr) {
                 swapAmount ++;
             }
         }
+        sortedCount ++;
     } while (swapAmount > 0);
     return arr;
 }
