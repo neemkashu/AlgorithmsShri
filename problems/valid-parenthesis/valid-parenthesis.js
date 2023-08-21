@@ -3,7 +3,8 @@
 const isOpeningBrace = (char) => ['(', '{', '['].includes(char)
 const isOfSameType = (braceOpen, braceClose) => ['()', '{}', '[]'].includes(braceOpen + braceClose)
 
-export function isValid(str) {
+// export function isValid(str) {
+function isValid(str) {
   const stack = [];
 
   for (let index = 0; index < str.length; index++) {
@@ -17,5 +18,18 @@ export function isValid(str) {
       }
     }
   }
-  return true;
+  return stack.length < 1;
 }
+const tests = [
+  '()',
+  '(',
+  ')',
+  '(]',
+  '((',
+  '))',
+  '([])',
+  '(){}'
+]
+tests.forEach((test) => {
+  console.log(test, isValid(test));
+})
