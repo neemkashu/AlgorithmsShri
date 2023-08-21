@@ -17,8 +17,6 @@ const getMinIndex = (i, arr) => {
 }
 
 export function selectionSort(arr) {
-    let left = 0;
-
     for (let index = 0; index < arr.length - 1; index++) {
         const min = getMinIndex(index, arr)
         swap(min, index, arr);
